@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+$( document ).ready( function() {
 
 var playButton = document.querySelector(".fa.fa-chevron-circle-right");
 var car = document.querySelector(".container");
@@ -31,29 +31,35 @@ playButton.onclick = function () {
 };
 
 
-var article3 = document.querySelector('#article3');
-var article4 = document.querySelector('#article4');
+var parentArticle = document.querySelector('.parentArticle');
 
 function showData(data){
-  console.log('ajax success handler called');
-  var objects = data;
-  for (var i=0; i < objects.length; i++) {
-    var currentObject = objects[i];
-    for (var key in currentObject){
-      var p = document.createElement('p');
-      var a = document.createElement('p');
-      if (key.includes('Name') || key.includes('Price') || key.includes('Photo')) {
-        p.innerHTML = currentObject[key];
-        p.className = 'paragraph';
-        article3.appendChild(p);
-      } else  {
-        p.innerHTML = key + ":" + currentObject[key];
-        // p.className = 'paragraph';
-        article3.appendChild(p);
-        console.log(article3);
-      }
-    };
-  };
+  // console.log('ajax success handler called');
+  data.forEach(car => {
+    var block = document.createElement("li")
+    block.className = "block"
+    parentArticle.appendChild(block)
+    var name = document.createElement("h4")
+    block.appendChild(name)
+    name.innerText=car.Name
+    var price = document.createElement("h5")
+    block.appendChild(price)
+    price.innerText = car.Price
+    var photo = document.createElement("img")
+    block.appendChild(photo)
+    photo.src = car.Photo
+    photo.alt = car.Name
+    photo.className = "bottom_pictures";
+
+
+    Object.entries(car).slice(3).forEach(prop =>{
+      var p = document.createElement("p")
+      p.innerText = `${prop[0]}: ${prop[1]}`
+      block.appendChild(p)
+    })
+
+
+})
 };
 
   $.ajax({

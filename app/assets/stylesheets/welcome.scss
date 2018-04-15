@@ -56,20 +56,28 @@ main {
   list-style-type: none;
 }
 
-#article3 {
- width:100%;
- background-color: purple;
+.parentArticle {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.paragraph {
+.block {
+  list-style-type: none;
+  padding-left: 0;
+  width: 50%;
+}
+
+.values-div {
   width:50%;
   background-color: orange;
 }
 
-// .keys_and_values {
-//   width:50%;
-//   background-color: lightblue;
-// }
+.bottom_pictures {
+  width:60%;
+  height: 30%;
+}
+
+
 @media only screen and (max-width: 1200px) {
   .fa.fa-chevron-circle-right {
     top: 15%;
@@ -93,6 +101,11 @@ main {
     margin-left: 20%;
     margin-right: 20%;
     text-align:center;
+  }
+
+  .bottom_pictures {
+    width:80%;
+    height: 30%;
   }
 
 
@@ -126,6 +139,11 @@ main {
 
   .p-button {
     width:100px;
+  }
+
+  .bottom_pictures {
+    width:90%;
+    height: 30%;
   }
 }
 
@@ -184,6 +202,16 @@ main {
     margin-left: 0%;
   }
 
+  .block {
+    list-style-type: none;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .bottom_pictures {
+    width:100%;
+    height: 30%;
+  }
 
 }
 
