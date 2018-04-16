@@ -58,6 +58,14 @@ function showData(data){
       block.appendChild(p)
     })
 
+    var button1 = document.createElement('button');
+    button1.innerText = 'LEARN MORE'
+    button1.className = 'bottom_button'
+    var button2 = document.createElement('button');
+    button2.innerText = 'BUILD A PRICE'
+    button2.className = 'bottom_button'
+    block.appendChild(button1)
+    block.appendChild(button2)
 
 })
 };
